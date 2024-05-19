@@ -13,15 +13,15 @@
             <div class="ipoteka_stats">
                 <div class="price stat">
                     <label for="price_input" class="price_name">Стоимость недвижимости</label>
-                    <input type="number" id="price_input" name="price_input" class="stat_input" min=500000 max=500000000 value=750000>
+                    <input type="number" id="price_input" name="price_input" class="stat_input" oninput="this.value = this.value.replace(/[^0-9]/g,'')" min=0 max=2147483647 value=750000>
                 </div>
                 <div class="initial_fee stat">
                     <label for="initial_fee_input" class="initial_fee_name">Первоначальный взнос</label>
-                    <input type="number" id="initial_fee_input" name="initial_fee_input" class="stat_input" min=50000 max=500000000 value=150000>
+                    <input type="number" id="initial_fee_input" name="initial_fee_input" class="stat_input" oninput="this.value = this.value.replace(/[^0-9]/g,'')" min=0 max=2147483647 value=150000>
                 </div>
                 <div class="term stat">
                     <label for="term_input" class="term_name">Срок</label>
-                    <input type="number" id="term_input" name="term_input" min=1 max=600 value=10>
+                    <input type="number" id="term_input" name="term_input" oninput="this.value = this.value.replace(/[^0-9]/g,'')" min=1 max=600 value=10>
                     <select name="term_type" class="term_type">
                         <option value="Y" selected="">лет</option>
                         <option value="M">месяцев</option>
@@ -30,26 +30,26 @@
                 <div class="percent stat">
                     <label for="percent_input"  class="percent_name">Ставка, %</label>
                     <input type="text" id="percent_input" name="percent_input" pattern="[0-9.^]{1,100}"
-                           title="Для нецелого числа используйте точку 16.5" class="stat_input" inputmode="numeric" value=16>
+                           title="Для нецелого числа используйте точку 16.5" class="stat_input" inputmode="numeric" max=1000 value=16>
                 </div>
                 <div class="calculation">
                     <input type="submit" id="calculate" value="Рассчитать">
                 </div>
                 <div class="credit_amount stat">
                     <label for="credit_amount_input" class="credit_amount_name">Сумма кредита</label>
-                    <input type="number" id="credit_amount_input" class="stat_input" readonly value={{ans1}}>
+                    <input type="text" id="credit_amount_input" class="stat_input" readonly value={{ans1}}>
                 </div>
                 <div class="payment stat">
                     <label for="payment_input" class="payment_name">Ежемесячный платеж</label>
-                    <input type="number" id="payment_input" class="stat_input" readonly value={{ans2}}>
+                    <input type="text" id="payment_input" class="stat_input" readonly value={{ans2}}>
                 </div>
                 <div class="charges stat">
                     <label for="charges_input" class="charges_name">Начисленные проценты</label>
-                    <input type="number" id="charges_input" class="stat_input" readonly value={{ans3}}>
+                    <input type="text" id="charges_input" class="stat_input" readonly value={{ans3}}>
                 </div>
                 <div class="total stat">
                     <label for="total_input" class="total_name">Общая выплата</label>
-                    <input type="number" id="total_input" class="stat_input" readonly value={{ans4}}>
+                    <input type="text" id="total_input" class="stat_input" readonly value={{ans4}}>
                 </div>
             </div>
         </form>
